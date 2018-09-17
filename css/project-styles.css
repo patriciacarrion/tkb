@@ -1,0 +1,238 @@
+.navbar-fixed-top {
+    padding-top: 4rem;
+}
+
+/* TITLES */
+.main-title {
+    border: 0;
+    border-bottom: 1px solid #e9ecef;
+    padding: 0;
+    padding-bottom: 0.5rem;
+    margin: 1rem 0;
+}
+
+.default-title {
+    margin: 1rem 0;
+}
+
+/* INPUTS, TEXTAREA */
+textarea::-moz-placeholder {
+    color: #e3ecec;
+    font-weight: 300;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #ae97f4;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(174, 151, 244, 0.25);
+  }
+
+/* TEXT STYLES */
+.empty-state {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.font-bold {
+    font-weight: 500;
+}
+
+.font-regular {
+    font-weight: 400;
+}
+
+.font-light {
+    font-weight: 300;
+}
+
+.font-x-light {
+    font-weight: 200;
+}
+
+#query-results {
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px dotted #ced4da;
+    border-radius: .25rem;
+}
+
+/* LINKS TKB */
+a {
+    color: #785ef0;
+  }
+  
+  a:hover {
+    color: #5a3ec8;
+  }
+
+.nav-link.tkb-link {
+    color: #785ef0;
+}
+
+.nav-link.tkb-link:hover,
+.nav-link.tkb-link.active {
+    color: #5a3ec8;
+}
+
+/* ICON STYLES */
+.icon-circle {
+    border: 4px solid transparent;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+/* COLORS */
+.background-light-gray {
+    background-color: #e9ecef;
+}
+
+.border-light-gray {
+    border-color: #e9ecef;
+}
+
+.text-light-gray {
+    color: #e9ecef;
+}
+
+.query-highlight,
+.query-secondary-highlight {
+    font-weight: 400;
+}
+
+.query-highlight {
+    background-color: rgba(199, 182, 247,.5);
+}
+
+.query-secondary-highlight {
+    background-color: rgba(142, 233, 212,.5);
+}
+
+/* BUTTON COLORS */
+.btn-tkb {
+    color: #fff;
+    background-color: #5a3ec8;
+    border-color: #5a3ec8;
+    /* background-color: #007bff;
+    border-color: #007bff; */
+  }
+  
+  .btn-tkb:hover {
+    color: #fff;
+    background-color: #473793;
+    border-color: #352969;
+    /* background-color: #0069d9;
+    border-color: #0062cc; */
+  }
+  
+  .btn-tkb:focus, .btn-tkb.focus {
+    box-shadow: 0 0 0 0.2rem rgba(39, 33, 73, 0.5);
+  }
+  
+  .btn-tkb.disabled, .btn-tkb:disabled {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-tkb:not(:disabled):not(.disabled):active, .btn-tkb:not(:disabled):not(.disabled).active,
+  .show > .btn-tkb.dropdown-toggle {
+    color: #fff;
+    background-color: #352969;
+    border-color: #272149;
+  }
+  
+  .btn-tkb:not(:disabled):not(.disabled):active:focus, .btn-tkb:not(:disabled):not(.disabled).active:focus,
+  .show > .btn-tkb.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(39, 33, 73, 0.5);
+  }
+
+  .btn-outline-tkb {
+    color: #5a3ec8;
+    background-color: transparent;
+    background-image: none;
+    border-color: #5a3ec8;
+  }
+  
+  .btn-outline-tkb:hover {
+    color: #fff;
+    background-color: #5a3ec8;
+    border-color: #5a3ec8;
+  }
+  
+  .btn-outline-tkb:focus, .btn-outline-tkb.focus {
+    box-shadow: 0 0 0 0.2rem rgba(39, 33, 73, 0.5);
+  }
+  
+  .btn-outline-tkb.disabled, .btn-outline-tkb:disabled {
+    color: #5a3ec8;
+    background-color: transparent;
+  }
+  
+  .btn-outline-tkb:not(:disabled):not(.disabled):active, .btn-outline-tkb:not(:disabled):not(.disabled).active,
+  .show > .btn-outline-tkb.dropdown-toggle {
+    color: #fff;
+    background-color: #5a3ec8;
+    border-color: #5a3ec8;
+  }
+  
+  .btn-outline-tkb:not(:disabled):not(.disabled):active:focus, .btn-outline-tkb:not(:disabled):not(.disabled).active:focus,
+  .show > .btn-outline-tkb.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(39, 33, 73, 0.5);
+  }
+
+/* ALERTS */
+.alert-tkb {
+    color: #6c757d;
+    background-color: rgba(0,0,0,.03);
+    border-color: rgba(0,0,0,.125);
+    font-style: italic;
+    font-weight: 300;
+}
+  
+
+/* MEDIA QUERIES */
+
+.show-responsive {
+    display: none;
+}
+
+@media (max-width: 405px) {
+    h2.main-title {
+        font-size: 1.75rem
+    }
+
+    .flex-sm-screen {
+      flex-wrap: wrap-reverse;
+    }
+
+    .flex-sm-screen .ml-1,
+    .flex-sm-screen .mr-1 {
+        margin: 0 !important;
+        width: 100%;
+      }
+
+      .flex-sm-screen .ml-1 button,
+      .flex-sm-screen .mr-1 button {
+          width: 100%;
+        }
+
+        .flex-sm-screen .mr-1 button {
+            margin-bottom: 0.5rem !important;
+        }
+}
+
+@media (max-width: 765px) {
+    #query-results {
+        width: 100% !important;
+    }
+
+    .show-responsive {
+        display: block;
+    }
+}

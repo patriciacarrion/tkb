@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="font-icon/css/fontawesome-all.css">
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+
+    <!-- TKB CSS -->
+    <link rel="stylesheet" href="css/project-styles.css">
+
+    <title>TKB - Textual Knowledge Base</title>
+</head>
+
+<body class="navbar-fixed-top">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white bd-navbar fixed-top">
+            <a class="navbar-brand font-bold" href="#">TKB</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fas fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link tkb-link" href="#">
+                            <span class="fas fa-info fa-pull-left float-none"></span>
+                            About TKB
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link tkb-link" href="#">
+                            <span class="fas fa-question fa-pull-left float-none"></span>
+                            Help
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container my-4">
+            <h2 class="main-title">Textual Knowledge Base</h2>
+            <div class="card text-center">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link tkb-link" href="#">
+                                <span class="fas fa-paste fa-pull-left float-none"></span>
+                                Paste Text
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tkb-link" href="#">
+                                <span class="fas fa-history fa-pull-left float-none"></span>
+                                Previous Query
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Type text fragment here" onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Type text fragment here'"></textarea>
+                    </div>
+                    <div class="d-flex flex-row-reverse flex-sm-screen">
+                        <div class="ml-1">
+                            <button type="button" class="btn btn-tkb">
+                                <span class="fas fa-search fa-pull-left float-none"></span>
+                                Submit Query
+                            </button>
+                        </div>
+                        <div class="mr-1">
+                            <button type="button" class="btn btn-outline-tkb">
+                                <span class="far fa-trash-alt fa-pull-left float-none"></span>
+                                Clear Query
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-4">
+            <div class="d-flex w-100">
+                <nav aria-label="breadcrumb" class="w-100">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            TKB pipeline results
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <!-- SHOW THIS MESSAGE WHEN THE USER HAS NOT YET SUBMITTED A QUERY -->
+                            <!-- <span class="empty-state">
+                                You have yet to submit a query
+                            </span> -->
+                            <!-- END COMMENT -->
+
+                            <!-- SHOW THIS MESSAGE WHEN THE ARE NO RESULTS FOR THE QUERY -->
+                            <!-- <span class="empty-state">
+                                No results found
+                            </span> -->
+                            <!-- END COMMENT -->
+
+                            <!-- SHOW THIS MESSAGE WHEN THE ARE RESULTS -->
+                            <span>
+                                4 entities, 1 triple, 2 graphical views
+                            </span>
+                            <!-- END COMMENT -->
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+
+            <!-- SHOW THIS DIV WHEN THE USER HAS NOT YET SUBMITTED A QUERY -->
+
+            <!-- <div class="mx-auto w-75">
+                <span class="fas fa-list fa-2x icon-circle text-light-gray border-light-gray"></span>
+                <h3 class="default-title font-light">You have yet to submit a query</h3>
+                <p class="font-light">By submitting a text fragment, TKB will present to you every information that it was able to obtain.
+                </p>
+                <p class="font-light">TKB syntactically analyzes the sentences and then derives semantic content out of it, namely detected entities
+                    and statements in the form Subject-Predicate-Object (triples).</p>
+                <p class="text-center">
+                    <button type="button" class="btn btn-outline-tkb">
+                        <span class="fas fa-info fa-pull-left float-none"></span>
+                        Learn More
+                    </button>
+                </p>
+            </div> -->
+
+            <!-- END COMMENT -->
+
+            <!-- SHOW THIS DIV WHEN THE ARE NO RESULTS FOR THE QUERY  -->
+
+            <!-- <div class="mx-auto w-75">
+                <span class="fas fa-list fa-2x icon-circle text-light-gray border-light-gray"></span>
+                <h3 class="default-title font-light">Sorry, no results found for your query</h3>
+            </div> -->
+
+            <!-- END COMMENT -->
+
+            <div class="container">
+                <div class="row">
+                    <div id="query-results" class="mx-auto w-75 mb-4">
+                        <p class="font-light mb-0 query">The
+                            <span class="query-secondary-highlight">
+                                <span class="query-highlight">Dourado</span> field</span>, located at a
+                            <span class="query-secondary-highlight">water</span>
+                            <span class="query-secondary-highlight">depth</span> of
+                            <span class="query-secondary-highlight">
+                                <span class="query-highlight">26 meters</span>
+                            </span> in the
+                            <span class="query-secondary-highlight">offshore platform</span> of the
+                            <span class="query-secondary-highlight">Sergipe-
+                                <span class="query-highlight">Alagoas</span>
+                                basin</span>, northeast Brazil, was discovered in 1970, and production began
+                            <span class="query-highlight">
+                                <span class="query-secondary-highlight">six</span> years</span> later.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="dropdown show mb-2">
+                            <!-- DROPDOWN MENU -->
+                            <a class="btn btn-outline-tkb dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <span class="far fa-clone fa-pull-left float-none"></span>
+                                Compare Results
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">NLU</a>
+                            </div>
+                        </div>
+                        <!-- SHOW TEXT BELOW AND LISTS OF ENTITIES & TRIPLES & GRAPHICAL VIEW FROM NLU ONLY WHEN NLU OPTION IS SELECTED FROM THE DROPDOWN MENU -->
+                        <p class="font-light">
+                            The comparison with NLU shows the results of the
+                            <a href="https://console.bluemix.net/docs/services/natural-language-understanding/index.html" target="_blank">Natural Language Understanding service</a>, trained with a custom oil and gas model.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h2 class="default-title font-light">TKB</h2>
+                        <h3 class="default-title">
+                            List of Entities
+                        </h3>
+
+                        <!-- SHOW THIS ALERT WHEN THERE ARE NO ENTITIES -->
+
+                        <!-- <div class="alert alert-tkb mb-5" role="alert">
+                            <span class="fas fa-exclamation fa-pull-left float-none"></span>
+                            No entities where found for this query.
+                        </div> -->
+
+                        <!-- END COMMENT -->
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Expression</th>
+                                        <th scope="col">Class</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="query-highlight">26 meters</span>
+                                        </th>
+                                        <td>Quantity</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="query-highlight">Alagoas</span>
+                                        </th>
+                                        <td>Basin</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="query-highlight">Dourado</span>
+                                        </th>
+                                        <td>Field</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="query-highlight">six years</span>
+                                        </th>
+                                        <td>Quantity</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h2 class="default-title font-light">NLU</h2>
+                        <h3 class="default-title">List of Entities</h3>
+
+                        <!-- SHOW THIS ALERT WHEN THERE ARE NO ENTITIES -->
+
+                        <!-- <div class="alert alert-tkb mb-5" role="alert">
+                            <span class="fas fa-exclamation fa-pull-left float-none"></span>
+                            No entities where found for this query.
+                        </div> -->
+
+                        <!-- END COMMENT -->
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Expression</th>
+                                        <th scope="col">Class</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="query-secondary-highlight">offshore platform</span>
+                                        </th>
+                                        <td>ASSESSMENT_AREA</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="query-secondary-highlight">water</span>
+                                        </th>
+                                        <td>EM_INORGANIC_FLUID</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="query-secondary-highlight">Dourado field</span>
+                                        </th>
+                                        <td>FD_FIELD</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="query-secondary-highlight">Sergipe- Alagoas basin</span>
+                                        </th>
+                                        <td>GL_STRUCTURE</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="query-secondary-highlight">six</span>
+                                        </th>
+                                        <td>M_CARDINAL</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="query-secondary-highlight">26 meters</span>
+                                        </th>
+                                        <td>M_MEASURE</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <span class="query-secondary-highlight">depth</span>
+                                        </th>
+                                        <td>PROPERTY</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h2 class="default-title font-light show-responsive">TKB</h2>
+                        <h3 class="default-title">List of Triples</h3>
+
+                        <!-- SHOW THIS ALERT WHEN THERE ARE NO TRIPLES -->
+
+                        <!-- <div class="alert alert-tkb mb-5" role="alert">
+                            <span class="fas fa-exclamation fa-pull-left float-none"></span>
+                            No triples where found for this query.
+                        </div> -->
+
+                        <!-- END COMMENT -->
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Subject</th>
+                                        <th scope="col">Predicate</th>
+                                        <th scope="col">Object</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>The Dourado field</td>
+                                        <th scope="row">discover</th>
+                                        <td>in 1970</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h2 class="default-title font-light show-responsive">NLU</h2>
+                        <h3 class="default-title">List of Triples</h3>
+
+                        <!-- SHOW THIS ALERT WHEN THERE ARE NO TRIPLES -->
+
+                        <!-- <div class="alert alert-tkb mb-5" role="alert">
+                            <span class="fas fa-exclamation fa-pull-left float-none"></span>
+                            No triples where found for this query.
+                        </div> -->
+
+                        <!-- END COMMENT -->
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Subject</th>
+                                        <th scope="col">Predicate</th>
+                                        <th scope="col">Object</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Dourado field</td>
+                                        <th scope="row">hasProperty</th>
+                                        <td>depth</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dourado field</td>
+                                        <th scope="row">hasPropertyValue</th>
+                                        <td>26 meters</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dourado field</td>
+                                        <th scope="row">locatedAt</th>
+                                        <td>offshore platform</td>
+                                    </tr>
+                                    <tr>
+                                        <td>water</td>
+                                        <th scope="row">hasProperty</th>
+                                        <td>depth</td>
+                                    </tr>
+                                    <tr>
+                                        <td>water</td>
+                                        <th scope="row">hasPropertyValue</th>
+                                        <td>26 meters</td>
+                                    </tr>
+                                    <tr>
+                                        <td>depth</td>
+                                        <th scope="row">hasValue</th>
+                                        <td>26 meters</td>
+                                    </tr>
+                                    <tr>
+                                        <td>offshore platform</td>
+                                        <th scope="row">contains</th>
+                                        <td>Sergipe- Alagoas basin</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h2 class="default-title font-light">TKB</h2>
+                        <h3 class="default-title">Graphical View</h3>
+
+                        <!-- SHOW THIS ALERT WHEN THERE IS NO GRAPHICAL VIEW -->
+
+                        <!-- <div class="alert alert-tkb mb-5" role="alert">
+                            <span class="fas fa-exclamation fa-pull-left float-none"></span>
+                            No graphical view available for this query.
+                        </div> -->
+
+                        <!-- END COMMENT -->
+                        <!-- SHOW THIS DIV WHEN THERE IS A GRAPHICAL VIEW -->
+
+                        <div class="w-100 mb-5">
+                            <h5 class="font-italic">simpledep</h5>
+                            Insert graphical view here.
+                        </div>
+                        <div class="w-100 mb-5">
+                            <h5 class="font-italic">conllu</h5>
+                            Insert graphical view here.
+                        </div>
+
+                        <!-- END COMMENT -->
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h2 class="default-title font-light">NLU</h2>
+                        <h3 class="default-title">Graphical View</h3>
+
+                        <!-- SHOW THIS ALERT WHEN THERE IS NO GRAPHICAL VIEW -->
+
+                        <div class="alert alert-tkb mb-5" role="alert">
+                            <span class="fas fa-exclamation fa-pull-left float-none"></span>
+                            No graphical view available for this query.
+                        </div>
+
+                        <!-- END COMMENT -->
+                        <!-- SHOW THIS DIV WHEN THERE IS A GRAPHICAL VIEW -->
+
+                        <!-- <div class="w-100 mb-5">
+                            <h5 class="font-italic">simpledep</h5>
+                            Insert graphical view here.
+                        </div>
+                        <div class="w-100 mb-5">
+                            <h5 class="font-italic">conllu</h5>
+                            Insert graphical view here.
+                        </div> -->
+
+                        <!-- END COMMENT -->
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <footer class="mx-auto text-center py-3 blockquote-footer">
+            © 2018 Copyright.
+            <a href="#">TKB - Textual Knowledge Base</a>.
+
+        </footer>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
